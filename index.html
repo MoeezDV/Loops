@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Percentage Calculator</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f4f8;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      form {
+        background-color: #ffffff;
+        padding: 25px;
+        width: 300px;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
+      }
+
+      button {
+        width: 100%;
+        padding: 10px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #43a047;
+      }
+
+      #percentage {
+        margin-top: 15px;
+        font-size: 18px;
+        font-weight: bold;
+        text-align: center;
+        color: #333;
+      }
+    </style>
+  </head>
+
+  <body>
+    <form onsubmit="calculatepercentage(); return false;">
+      <input
+        type="text"
+        name="obtainedmarks"
+        id="obtainedmarks"
+        placeholder="Enter your obtained marks"
+      />
+
+      <input
+        type="text"
+        name="totalmarks"
+        id="totalmarks"
+        placeholder="Enter total marks"
+      />
+
+      <button>Save</button>
+
+      <div id="percentage"></div>
+    </form>
+
+    <script>
+      function calculatepercentage() {
+        const obtMarksRef = document.querySelector("#obtainedmarks");
+        const totalMarksRef = document.querySelector("#totalmarks");
+        const resulDivRef = document.querySelector("#percentage");
+
+        let obtMarks = Number(obtMarksRef.value);
+        let totalMarks = Number(totalMarksRef.value);
+
+        const percentage = (obtMarks / totalMarks) * 100;
+        resulDivRef.innerHTML = "Percentage: " + percentage.toFixed(2) + "%";
+      }
+    </script>
+  </body>
+</html>
